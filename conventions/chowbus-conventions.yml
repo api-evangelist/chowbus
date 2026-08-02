@@ -1,0 +1,133 @@
+generated: '2026-08-02'
+method: probed
+source: live probes of chowbus.com, pos.chowbus.com, pos-api.chowbus.com, api.chowbus.com
+summary: >-
+  Chowbus publishes no public developer portal, API reference, OpenAPI/Swagger
+  document, GraphQL endpoint, AsyncAPI, webhook catalog, SDK, CLI or sandbox as of
+  2026-08-02. What can be recorded honestly is the observed shape of the live API
+  hosts plus the surfaces the company markets. Everything below is either an observed
+  HTTP response or a quoted marketing claim; nothing is inferred into a contract.
+authentication:
+  documented: false
+  observed: >-
+    pos-api.chowbus.com answers unauthenticated requests with a JSON error envelope
+    rather than a WWW-Authenticate challenge; no OAuth or OIDC discovery document is
+    served (/.well-known/oauth-authorization-server and /.well-known/openid-configuration
+    both 404). The merchant surface is a session login at pos.chowbus.com/dashboard.
+  notes: No API key, OAuth, or token issuance flow is publicly documented.
+error_envelope:
+  format: custom-json
+  rfc9457: false
+  media_type: application/json; charset=utf-8
+  shape: '{"errors":[{"code":"200404","status":"Not Found","title":"Not Found"}]}'
+  fields:
+  - name: errors
+    type: array
+    note: top-level array of error objects, JSON:API-flavored
+  - name: errors[].code
+    type: string
+    note: internal numeric-string code; observed value "200404" alongside HTTP 404
+  - name: errors[].status
+    type: string
+    note: HTTP reason phrase
+  - name: errors[].title
+    type: string
+    note: short human-readable title
+  observed_on: https://pos-api.chowbus.com/
+  observed_status: 404
+  caveat: >-
+    Only the 404 case could be observed anonymously. This is not a published error
+    catalog and must not be treated as one; no errors/ artifact is emitted.
+idempotency:
+  documented: false
+  evidence: none
+  note: >-
+    No Idempotency-Key header, no idempotency documentation, and no OpenAPI to derive
+    one from. Deliberately no `Idempotency` pointer is wired in apis.yml.
+pagination:
+  documented: false
+versioning:
+  documented: false
+  observed: >-
+    api.chowbus.com (legacy Rails host) exposes /backend and /auth/chowbus routes; no
+    version segment is documented on pos-api.chowbus.com.
+rate_limiting:
+  documented: false
+event_surface:
+  asyncapi: false
+  webhooks_documented: false
+  note: >-
+    Chowbus markets a "two-way" third-party delivery integration syncing orders and
+    menus with 45+ marketplaces, and partner aggregators (Deliverect, Metrobi,
+    Chowly-class middleware) publish Chowbus POS connectors — so a private
+    partner/event integration surface demonstrably exists. It is not publicly
+    documented, so no AsyncAPI or Webhooks artifact/pointer is emitted.
+hosts_observed:
+- host: pos-api.chowbus.com
+  status: live
+  content_type: application/json; charset=utf-8
+  role: POS platform API (undocumented, gated)
+- host: api.chowbus.com
+  status: live
+  content_type: text/html; charset=utf-8
+  role: legacy marketplace-era Rails backend / admin login
+- host: pos.chowbus.com
+  status: live
+  role: merchant dashboard SPA (Cloudflare)
+- host: www.chowbus.com
+  status: live
+  role: marketing site (Webflow), serves llms.txt
+contract_discovery:
+  performed: '2026-08-02'
+  result: no-machine-readable-contract
+  paths_probed:
+  - /openapi.json
+  - /openapi.yaml
+  - /openapi
+  - /swagger.json
+  - /swagger/v1/swagger.json
+  - /v1/openapi.json
+  - /v3/api-docs
+  - /api-docs
+  - /api/docs
+  - /docs
+  - /redoc
+  - /graphql
+  - /.well-known/agent-card.json
+  - /.well-known/agent.json
+  - /.well-known/oauth-authorization-server
+  - /.well-known/oauth-protected-resource
+  - /.well-known/openid-configuration
+  - /.well-known/api-catalog
+  - /.well-known/ai-plugin.json
+  - /llms.txt
+  hosts_probed:
+  - www.chowbus.com
+  - pos.chowbus.com
+  - pos-api.chowbus.com
+  - api.chowbus.com
+  subdomains_resolved:
+  - pos.chowbus.com
+  - pos-api.chowbus.com
+  - api.chowbus.com
+  subdomains_nxdomain:
+  - developer.chowbus.com
+  - developers.chowbus.com
+  - docs.chowbus.com
+  - open.chowbus.com
+  - openapi.chowbus.com
+  - status.chowbus.com
+  - trust.chowbus.com
+  - merchant.chowbus.com
+  - partner.chowbus.com
+  github_org:
+    url: https://github.com/chowbus
+    verified: true
+    public_repos: 4
+    note: >-
+      Only forks/mirrors of third-party OSS (phobos, pub_server, cimg-postgres) plus
+      a .github repo. No API specs, SDKs, or protos published.
+  registries_searched:
+    npm: no first-party @chowbus package found
+    pypi: no chowbus project (404)
+  only_hit: https://www.chowbus.com/llms.txt

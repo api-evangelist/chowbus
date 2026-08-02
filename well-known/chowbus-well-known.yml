@@ -1,0 +1,85 @@
+generated: '2026-08-02'
+method: probed
+source: live probe of every Chowbus host discovered during enrichment
+summary: >-
+  No /.well-known/ discovery document was found on any Chowbus host. Every probed
+  path returned 404. Recorded as a negative result so later rounds do not re-probe
+  blindly; no WellKnown/SecurityTxt pointer is wired in apis.yml because nothing is
+  published. The one machine-readable agent artifact Chowbus does publish is
+  https://www.chowbus.com/llms.txt (200, saved verbatim to llms/chowbus-llms.txt).
+hosts:
+- host: https://www.chowbus.com
+  note: marketing site (Webflow); /.well-known/* answers 404 with "Invalid .well-known request"
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    file: ../llms/chowbus-llms.txt
+    content_type: text/plain; charset=utf-8
+    bytes: 28644
+- host: https://pos.chowbus.com
+  note: merchant dashboard SPA behind Cloudflare
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://pos-api.chowbus.com
+  note: live JSON API host; every path returns a structured JSON error envelope, no
+    public spec or docs
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.chowbus.com
+  note: legacy Rails backend/admin host for the consumer marketplace era
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+x-evidence:
+  fetched: '2026-08-02'
+  method: HTTP GET, no auth
+  hosts_probed: 4
+  documents_found: 1
