@@ -23,7 +23,7 @@ x-type: company
 x-source: harvest:secondary-market
 x-tier: profile
 x-tier-reason: enrichment-pass
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 x-enrichment:
   date: '2026-08-02'
   status: enriched
