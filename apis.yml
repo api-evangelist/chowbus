@@ -17,6 +17,17 @@ description: 'Chowbus is a Chicago-headquartered restaurant technology company f
   contract, SDK, or sandbox. Its only machine-readable public agent surface is a hand-authored
   bilingual llms.txt at chowbus.com/llms.txt; a JSON API host (pos-api.chowbus.com)
   is live and returns a structured error envelope but is undocumented and gated.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/6779a2f99727a85f07c60031/6820433f65a36dfb5f461788_ChowbusLogo.png
 url: https://raw.githubusercontent.com/api-evangelist/chowbus/refs/heads/main/apis.yml
 x-type: company
