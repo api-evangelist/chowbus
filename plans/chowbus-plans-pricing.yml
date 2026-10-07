@@ -1,0 +1,38 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.chowbus.com/pos-plans/pricing
+sources:
+- https://www.chowbus.com/pos-plans/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+  managed_tier: Starter
+published: false
+note: No numeric price is published on the pricing page; Three named POS tiers (Starter, Efficiency, Growth)
+  with no listed prices; all CTAs are quote requests. Only numeric mention is '$0 upfront hardware available
+  for qualified restaurants', a conditional hardware offer rather than a plan price, so published=false.
+plan_count: 3
+plans:
+- name: Starter
+  price_text: Get a Quote
+  period: none
+  included_quota: All-in-one POS system, kitchen ticketing, menu management, smart ordering (Kiosks, Table
+    Tablets, QR + Online Ordering), Loyalty Program, and more
+- name: Efficiency
+  price_text: Request Demo
+  period: none
+  included_quota: Everything from Starter PLUS delivery integration, Promotions Engine, Waitlist Reservation,
+    and much more
+- name: Growth
+  price_text: Get a Tailored Recommendation
+  period: none
+  included_quota: Everything from Efficiency PLUS Kitchen Display Screen, Custom Branded App, Customer
+    Pickup Screen, MMS, Custom Reporting, Robotic Integrations
