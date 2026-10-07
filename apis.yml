@@ -89,6 +89,8 @@ maintainers:
 x-backed-by:
 - starting-line-vc
 common:
+- type: Plans
+  url: plans/chowbus-plans-pricing.yml
 - type: Website
   url: https://www.chowbus.com/
 - type: About
