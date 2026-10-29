@@ -64,23 +64,90 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Chowbus is a Chicago-headquartered restaurant technology company founded in 2016 by Linxin Wen and Suyu Zhang. It began as an online food ordering, payment and delivery marketplace for Asian restaurants and has since pivoted to a cloud-based, AI-assisted restaurant operating platform: point of sale, self-ordering kiosks, handheld and tablet ordering, kitchen display systems, waitlist and reservations, online ordering, branded restaurant websites and mobile apps, loyalty, gift cards, SMS marketing, a promotions engine, multi-location management, and an AI suite. Chowbus states it serves 9,000+ restaurants across all 50 U.S. states and Canada, and raised an $81M growth round in March 2026 led by Prysm Capital and Left Lane Capital.
+Chowbus is a Chicago-headquartered restaurant technology company founded in 2016 by Linxin Wen and Suyu Zhang. It began as an online food ordering, payment and delivery marketplace for Asian restaurants and has since pivoted to a cloud-based, AI-assisted restaurant operating platform: point of sale, self-ordering kiosks, handheld and tablet ordering, kitchen display systems, waitlist and reservations, online ordering, branded restaurant websites and mobile apps, loyalty, gift cards, SMS marketing, a promotions engine, multi-location management, and an AI suite covering digital ads, social media, creative assets and review insights. Chowbus states it serves 9,000+ restaurants across all 50 U.S. states and Canada with 24/7 bilingual (EN/ZH/ES) support, and raised an $81M growth round in March 2026 led by Prysm Capital and Left Lane Capital. Its POS advertises two-way third-party delivery integration with 45+ marketplaces (DoorDash, Uber Eats, Grubhub and others), and partner-side aggregators such as Deliverect publish Chowbus POS connectors — but as of August 2026 Chowbus publishes no public developer portal, API reference, OpenAPI/AsyncAPI contract, SDK, or sandbox. Its only machine-readable public agent surface is a hand-authored bilingual llms.txt at chowbus.com/llms.txt; a JSON API host (pos-api.chowbus.com) is live and returns a structured error envelope but is undocumented and gated.
 
-- https://www.chowbus.com/
+**Areas:** Company · Restaurant · Point-of-Sale · Restaurant Technology · Food and Beverage · Online Ordering · Payments · Loyalty · Hospitality · Software-as-a-Service · Artificial Intelligence · United States
 
-## API surface
+## Chowbus on APIs.io
 
-As of the 2026-08-02 enrichment pass, Chowbus publishes **no public developer portal, API reference, OpenAPI/Swagger, GraphQL endpoint, AsyncAPI, webhook catalog, SDK, CLI, or sandbox**. A live JSON API host (`pos-api.chowbus.com`) exists and returns a structured error envelope, but it is undocumented and gated. A private partner integration surface demonstrably exists — Chowbus markets two-way order/menu sync with 45+ delivery marketplaces, and aggregators such as Deliverect publish Chowbus POS connectors — but none of it is publicly specified.
+Everything profiled for Chowbus is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/chowbus/](https://apis.io/providers/chowbus/)** — or go straight to one of the APIs or properties below.
 
-The one machine-readable agent artifact Chowbus does publish is a hand-authored bilingual (EN/ZH) `llms.txt`.
+### Published properties
 
-## Artifacts
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Artifact | Method | Notes |
-|---|---|---|
-| `llms/chowbus-llms.txt` | searched | Verbatim from https://www.chowbus.com/llms.txt (HTTP 200, 28,644 bytes) |
-| `well-known/chowbus-well-known.yml` | probed | 4 hosts × 20 paths; the only 200 was `/llms.txt` |
-| `conventions/chowbus-conventions.yml` | probed | Observed API hosts, error-envelope shape, and the full contract-discovery negative record |
-| `security/chowbus-domain-security.yml` | probed | TLS 1.3 + HSTS on all four hosts; DNSSEC on, no CAA, SPF + DMARC (`p=quarantine`) |
+#### Security (1)
 
-No `a2a/`, `mcp/`, `openapi/`, `packages/`, `skills/`, `sandbox/`, `changelog/`, or `errors/` artifacts were written — nothing to search, generate, or derive without a contract or published surface.
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Chowbus Domain Security](https://apis.io/security/chowbus/chowbus-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Chowbus Plans Pricing](https://apis.io/plans/chowbus/chowbus-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.chowbus.com/)
+- [Pricing](https://www.chowbus.com/pos-plans/pricing)
+- [Sign up](https://www.chowbus.com/free-pos-demo)
+- [Blog](https://www.chowbus.com/blog)
+- [Privacy policy](https://www.chowbus.com/privacy-policy)
+- [GitHub](https://github.com/chowbus)
+
+## API Evangelist rating
+
+**Kin Score 17.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 65.8 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 8.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/chowbus/](https://apis.io/providers/chowbus/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Chowbus: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/chowbus/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
